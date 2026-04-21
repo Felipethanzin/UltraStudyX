@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraStudyX | Ferramentas</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Segoe UI, sans-serif;
+        }
+
+        body {
+            background: #07111f;
+            color: #ffffff;
+        }
+
+        header {
+            background: #0b1b33;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4da6ff;
+        }
+
+        nav a {
+            color: #c8d6e8;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #4da6ff;
+        }
+
+        .topo {
+            padding: 60px 8% 30px;
+        }
+
+        .topo h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .topo p {
+            color: #9db0c7;
+        }
+
+        .grid {
+            padding: 10px 8% 70px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #0d1a2d;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #1d6fff;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 20px;
+        }
+
+        .info h3 {
+            color: #4da6ff;
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            color: #9db0c7;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #1d6fff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            color: #7f92aa;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">UltraStudyX</div>
+
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="../cursos/cursos.html">Jogos</a>
+            <a href="../videos/video.html">Vídeos</a>
+            <a href="../ferr/ferra.html">Ferramentas</a>
+
+
+        </nav>
+    </header>
+
+    <section class="topo">
+        <h1>Ferramentas de Programação</h1>
+        <p>As melhores plataformas para estudar, programar e evoluir na área de TI.</p>
+    </section>
+
+    <section class="grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800" alt="">
+            <div class="info">
+                <h3>Visual Studio Code</h3>
+                <p>Editor profissional para HTML, CSS, JavaScript, Python e muito mais.</p>
+                <a href="https://code.visualstudio.com/" target="_blank" class="btn">Acessar</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800" alt="">
+            <div class="info">
+                <h3>GitHub</h3>
+                <p>Hospede projetos, versionamento de código e portfólio.</p>
+                <a href="https://github.com/" target="_blank" class="btn">Acessar</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" alt="">
+            <div class="info">
+                <h3>CodePen</h3>
+                <p>Teste códigos front-end online rapidamente.</p>
+                <a href="https://codepen.io/" target="_blank" class="btn">Acessar</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=800" alt="">
+            <div class="info">
+                <h3>Replit</h3>
+                <p>Programe direto no navegador com várias linguagens.</p>
+                <a href="https://replit.com/" target="_blank" class="btn">Acessar</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="">
+            <div class="info">
+                <h3>W3Schools</h3>
+                <p>Aprenda HTML, CSS, JS, SQL e outras tecnologias.</p>
+                <a href="https://www.w3schools.com/" target="_blank" class="btn">Acessar</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800" alt="">
+            <div class="info">
+                <h3>ChatGPT</h3>
+                <p>Ajuda com códigos, estudos e dúvidas de programação.</p>
+                <a href="https://chat.openai.com/" target="_blank" class="btn">Acessar</a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 UltraStudyX - Ferramentas Profissionais de TI
+    </footer>
+
+</body>
+
+</html>
