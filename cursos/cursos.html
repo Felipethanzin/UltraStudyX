@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UltraStudyX | Jogos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    list-style:none;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,#13203f 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#0d1b35 0%,transparent 30%),
+    linear-gradient(180deg,#050816 0%,#070d1f 100%);
+
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+    background-size:50px 50px;
+
+    z-index:-1;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    width:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:20px 7%;
+
+    background:rgba(5,10,25,0.88);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,0.06);
+
+    position:relative;
+    z-index:999;
+}
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-icon{
+    width:68px;
+    height:68px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:2rem;
+
+    border-radius:20px;
+
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+
+    box-shadow:
+    0 10px 30px rgba(37,99,235,0.35);
+}
+
+.logo-text{
+    font-size:2rem;
+    font-weight:800;
+
+    background:linear-gradient(90deg,#ffffff,#60a5fa);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* NAV */
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.nav a{
+    color:#dbe7ff;
+
+    padding:13px 18px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.nav a:hover{
+    background:rgba(255,255,255,0.05);
+
+    color:#60a5fa;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+    position:relative;
+}
+
+.drop-btn{
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:700;
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    transition:0.3s;
+}
+
+.drop-btn:hover{
+    transform:translateY(-3px);
+}
+
+.dropdown-menu{
+    position:absolute;
+
+    top:70px;
+    right:0;
+
+    width:230px;
+
+    padding:12px;
+
+    display:none;
+    flex-direction:column;
+    gap:8px;
+
+    border-radius:20px;
+
+    background:#0f172a;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.45);
+}
+
+.dropdown:hover .dropdown-menu{
+    display:flex;
+}
+
+.dropdown-menu a{
+    padding:15px;
+    border-radius:12px;
+}
+
+.dropdown-menu a:hover{
+    background:rgba(59,130,246,0.12);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    width:100%;
+
+    padding:90px 8%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:60px;
+
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+    min-width:320px;
+}
+
+.hero-text h1{
+    font-size:4rem;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+}
+
+.hero-text span{
+    color:#60a5fa;
+}
+
+.hero-text p{
+    color:#b9c8e6;
+
+    line-height:1.9;
+
+    font-size:1.1rem;
+
+    max-width:650px;
+
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:18px 35px;
+
+    border-radius:16px;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(135deg,#2563eb,#3b82f6);
+
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+.btn2{
+    padding:18px 35px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    background:rgba(255,255,255,0.04);
+
+    color:white;
+
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+.btn2:hover{
+    transform:translateY(-5px);
+}
+
+/* HERO IMAGE */
+
+.hero-image{
+    flex:1;
+    min-width:320px;
+
+    display:flex;
+    justify-content:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:600px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,0.45);
+}
+
+/* =========================================================
+   TITULO
+========================================================= */
+
+.section-title{
+    text-align:center;
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+}
+
+.section-sub{
+    text-align:center;
+
+    color:#9eb2d9;
+
+    margin-bottom:70px;
+
+    font-size:1.1rem;
+}
+
+/* =========================================================
+   GAMES
+========================================================= */
+
+.games{
+    width:100%;
+
+    padding:20px 8% 100px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+}
+
+/* CARD */
+
+.card{
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(180deg,#10182f,#0b1223);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.35s;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+
+    border-color:#3b82f6;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.4);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+}
+
+/* INFO */
+
+.info{
+    padding:28px;
+}
+
+.tag{
+    display:inline-block;
+
+    margin-bottom:16px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:0.85rem;
+    font-weight:700;
+
+    background:rgba(59,130,246,0.12);
+
+    color:#60a5fa;
+}
+
+.info h3{
+    font-size:1.5rem;
+
+    margin-bottom:15px;
+}
+
+.info p{
+    color:#b5c4df;
+
+    line-height:1.8;
+
+    margin-bottom:22px;
+}
+
+/* BOTÃO */
+
+.play-btn{
+    display:inline-block;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(135deg,#2563eb,#3b82f6);
+
+    transition:0.3s;
+}
+
+.play-btn:hover{
+    transform:translateY(-4px);
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px;
+
+    text-align:center;
+
+    color:#8fa4cc;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:950px){
+
+    .header{
+        flex-direction:column;
+        gap:25px;
+    }
+
+    .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .header{
+        padding:25px 5%;
+    }
+
+    .logo{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .nav{
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+        gap:14px;
+    }
+
+    .nav a{
+        width:100%;
+        text-align:center;
+
+        background:rgba(255,255,255,0.04);
+    }
+
+    .dropdown{
+        width:100%;
+    }
+
+    .drop-btn{
+        width:100%;
+    }
+
+    .dropdown-menu{
+        width:100%;
+        left:0;
+    }
+
+    .hero-text h1{
+        font-size:2.5rem;
+    }
+
+    .section-title{
+        font-size:2.2rem;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .nav{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text h1{
+        font-size:2rem;
+    }
+
+    .games{
+        grid-template-columns:1fr;
+    }
+
+    .btn,
+    .btn2,
+    .play-btn{
+        width:100%;
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo">
+        <div class="logo-icon">🎮</div>
+        <div class="logo-text">UltraStudyX</div>
+    </div>
+
+    <nav class="nav">
+
+        <a href="../index.html">Início</a>
+        <a href="cursos.html">Jogos</a>
+        <a href="../videos/video.html">Vídeos</a>
+        <a href="../ferr/ferra.html">Ferramentas</a>
+
+        <div class="dropdown">
+
+            <button class="drop-btn">
+                Mais ▾
+            </button>
+
+            <div class="dropdown-menu">
+                <a href="#">Comunidade</a>
+                <a href="#">Ranking</a>
+                <a href="#">Desafios</a>
+                <a href="#">Eventos</a>
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Aprenda TI
+            <span>Jogando</span>
+        </h1>
+
+        <p>
+            Jogos educativos para aprender programação,
+            lógica, desenvolvimento web,
+            segurança, redes e tecnologia
+            de forma divertida.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#games" class="btn">Explorar Jogos</a>
+            <a href="../videos/video.html" class="btn2">Vídeos</a>
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop">
+
+    </div>
+
+</section>
+
+<!-- TITULO -->
+
+<h2 class="section-title" id="games">
+    Jogos de Programação
+</h2>
+
+<p class="section-sub">
+    Evolua suas habilidades em programação e tecnologia jogando
+</p>
+
+<!-- GAMES -->
+
+<section class="games">
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">CSS</span>
+            <h3>Flexbox Froggy</h3>
+            <p>Aprenda Flexbox posicionando sapos usando CSS moderno.</p>
+            <a href="https://flexboxfroggy.com/#pt-br" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">HTML</span>
+            <h3>CSS Speedrun</h3>
+            <p>Treine HTML e CSS criando layouts rápidos e interativos.</p>
+            <a href="https://css-speedrun.netlify.app/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Python</span>
+            <h3>CodeCombat</h3>
+            <p>Aprenda programação derrotando inimigos com código.</p>
+            <a href="https://codecombat.com/play" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">JavaScript</span>
+            <h3>CodinGame</h3>
+            <p>Resolva desafios e evolua lógica usando programação.</p>
+            <a href="https://www.codingame.com/start/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Lógica</span>
+            <h3>CheckiO</h3>
+            <p>Aprenda Python e JavaScript resolvendo missões.</p>
+            <a href="https://checkio.org/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Banco de Dados</span>
+            <h3>SQL Murder Mystery</h3>
+            <p>Resolva crimes utilizando consultas SQL.</p>
+            <a href="https://mystery.knightlab.com/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Cybersecurity</span>
+            <h3>OverTheWire</h3>
+            <p>Treine hacking ético e Linux com desafios reais.</p>
+            <a href="https://overthewire.org/wargames/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">CSS Grid</span>
+            <h3>Grid Garden</h3>
+            <p>Aprenda CSS Grid cuidando de uma plantação virtual.</p>
+            <a href="https://cssgridgarden.com/#pt-br" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Front-End</span>
+            <h3>Frontend Mentor</h3>
+            <p>Desafios reais para treinar desenvolvimento web.</p>
+            <a href="https://www.frontendmentor.io/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">JavaScript</span>
+            <h3>Screeps</h3>
+            <p>Controle exércitos usando JavaScript real.</p>
+            <a href="https://screeps.com/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Lógica</span>
+            <h3>Human Resource Machine</h3>
+            <p>Resolva problemas usando lógica de programação.</p>
+            <a href="https://tomorrowcorporation.com/humanresourcemachine" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Python</span>
+            <h3>Py.CheckiO</h3>
+            <p>Missões interativas para aprender Python jogando.</p>
+            <a href="https://py.checkio.org/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Linux</span>
+            <h3>Terminus</h3>
+            <p>Aprenda comandos Linux em formato de jogo.</p>
+            <a href="https://web.mit.edu/mprat/Public/web/Terminus/Web/main.html" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Desafios</span>
+            <h3>HackerRank</h3>
+            <p>Resolva exercícios de programação e algoritmos.</p>
+            <a href="https://www.hackerrank.com/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=1200&auto=format&fit=crop">
+        <div class="info">
+            <span class="tag">Competição</span>
+            <h3>Codewars</h3>
+            <p>Suba de rank resolvendo desafios de programação.</p>
+            <a href="https://www.codewars.com/" class="play-btn">Jogar</a>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+© 2026 UltraStudyX — Jogos Educativos de Programação
+</footer>
+
+</body>
+</html>

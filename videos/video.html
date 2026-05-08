@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UltraStudyX | Vídeos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    list-style:none;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================================================
+   FUNDO
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,#13203f 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#0d1b35 0%,transparent 30%),
+    linear-gradient(180deg,#050816 0%,#070d1f 100%);
+
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+    background-size:50px 50px;
+
+    z-index:-1;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    width:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:20px 7%;
+
+    background:rgba(5,10,25,0.88);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,0.06);
+
+    position:relative;
+    z-index:999;
+}
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-icon{
+    width:68px;
+    height:68px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:2rem;
+
+    border-radius:20px;
+
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+
+    box-shadow:
+    0 10px 30px rgba(37,99,235,0.35);
+}
+
+.logo-text{
+    font-size:2rem;
+    font-weight:800;
+
+    background:linear-gradient(90deg,#ffffff,#60a5fa);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* NAV */
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.nav a{
+    color:#dbe7ff;
+
+    padding:13px 18px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:0.3s;
+}
+
+.nav a:hover{
+    background:rgba(255,255,255,0.05);
+
+    color:#60a5fa;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+    position:relative;
+}
+
+.drop-btn{
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:700;
+
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+
+    transition:0.3s;
+}
+
+.drop-btn:hover{
+    transform:translateY(-3px);
+}
+
+.dropdown-menu{
+    position:absolute;
+
+    top:70px;
+    right:0;
+
+    width:230px;
+
+    padding:12px;
+
+    display:none;
+    flex-direction:column;
+    gap:8px;
+
+    border-radius:20px;
+
+    background:#0f172a;
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.45);
+}
+
+.dropdown:hover .dropdown-menu{
+    display:flex;
+}
+
+.dropdown-menu a{
+    padding:15px;
+    border-radius:12px;
+}
+
+.dropdown-menu a:hover{
+    background:rgba(59,130,246,0.12);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    width:100%;
+
+    padding:90px 8%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:60px;
+
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+    min-width:320px;
+}
+
+.hero-text h1{
+    font-size:4rem;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+}
+
+.hero-text span{
+    color:#60a5fa;
+}
+
+.hero-text p{
+    color:#b9c8e6;
+
+    line-height:1.9;
+
+    font-size:1.1rem;
+
+    max-width:650px;
+
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:18px 35px;
+
+    border-radius:16px;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(135deg,#2563eb,#3b82f6);
+
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+.btn2{
+    padding:18px 35px;
+
+    border-radius:16px;
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    background:rgba(255,255,255,0.04);
+
+    color:white;
+
+    font-weight:700;
+
+    transition:0.3s;
+}
+
+.btn2:hover{
+    transform:translateY(-5px);
+}
+
+/* HERO IMAGE */
+
+.hero-image{
+    flex:1;
+    min-width:320px;
+
+    display:flex;
+    justify-content:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:600px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+    0 25px 80px rgba(0,0,0,0.45);
+}
+
+/* =========================================================
+   TITULO
+========================================================= */
+
+.section-title{
+    text-align:center;
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+}
+
+.section-sub{
+    text-align:center;
+
+    color:#9eb2d9;
+
+    margin-bottom:70px;
+
+    font-size:1.1rem;
+}
+
+/* =========================================================
+   VIDEOS
+========================================================= */
+
+.videos{
+    width:100%;
+
+    padding:20px 8% 100px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+}
+
+/* CARD */
+
+.card{
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(180deg,#10182f,#0b1223);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    transition:0.35s;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+
+    border-color:#3b82f6;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* IMG */
+
+.card img{
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+}
+
+/* INFO */
+
+.info{
+    padding:28px;
+}
+
+.tag{
+    display:inline-block;
+
+    margin-bottom:16px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:0.85rem;
+    font-weight:700;
+
+    background:rgba(59,130,246,0.12);
+
+    color:#60a5fa;
+}
+
+.info h3{
+    font-size:1.5rem;
+
+    margin-bottom:15px;
+}
+
+.info p{
+    color:#b5c4df;
+
+    line-height:1.8;
+
+    margin-bottom:22px;
+}
+
+.card-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.watch-btn{
+    padding:14px 22px;
+
+    border-radius:14px;
+
+    color:white;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(135deg,#2563eb,#3b82f6);
+
+    transition:0.3s;
+}
+
+.watch-btn:hover{
+    transform:translateY(-4px);
+}
+
+.youtube-btn{
+    padding:14px 22px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    color:white;
+
+    background:rgba(255,255,255,0.04);
+
+    transition:0.3s;
+}
+
+.youtube-btn:hover{
+    background:rgba(255,255,255,0.08);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:40px;
+
+    text-align:center;
+
+    color:#8fa4cc;
+
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:950px){
+
+    .header{
+        flex-direction:column;
+        gap:25px;
+    }
+
+    .nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .header{
+        padding:25px 5%;
+    }
+
+    .logo{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .nav{
+        width:100%;
+
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+        gap:14px;
+    }
+
+    .nav a{
+        width:100%;
+        text-align:center;
+
+        background:rgba(255,255,255,0.04);
+    }
+
+    .dropdown{
+        width:100%;
+    }
+
+    .drop-btn{
+        width:100%;
+    }
+
+    .dropdown-menu{
+        width:100%;
+        left:0;
+    }
+
+    .hero-text h1{
+        font-size:2.5rem;
+    }
+
+    .section-title{
+        font-size:2.2rem;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .nav{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text h1{
+        font-size:2rem;
+    }
+
+    .videos{
+        grid-template-columns:1fr;
+    }
+
+    .btn,
+    .btn2,
+    .watch-btn,
+    .youtube-btn{
+        width:100%;
+        text-align:center;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo">
+        <div class="logo-icon">💻</div>
+        <div class="logo-text">UltraStudyX</div>
+    </div>
+
+    <nav class="nav">
+
+        <a href="../index.html">Início</a>
+        <a href="../cursos/cursos.html">Cursos</a>
+        <a href="video.html">Vídeos</a>
+        <a href="../ferr/ferra.html">Ferramentas</a>
+
+
+    </nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Aprenda com os Melhores
+            <span>Vídeos de TI</span>
+        </h1>
+
+        <p>
+            Cursos completos de programação, desenvolvimento web,
+            Python, JavaScript, Redes, Banco de Dados,
+            Linux, Front-end, Back-end e tecnologia.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#videos" class="btn">Explorar Vídeos</a>
+            <a href="https://youtube.com" class="btn2">Canal YouTube</a>
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="">
+
+    </div>
+
+</section>
+
+<!-- TITULO -->
+
+<h2 class="section-title" id="videos">
+    Vídeos Populares
+</h2>
+
+<p class="section-sub">
+    Conteúdo atualizado para evoluir na área de tecnologia
+</p>
+
+<!-- VIDEOS -->
+
+<section class="videos">
+
+    <!-- CARD -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="info">
+
+            <span class="tag">HTML5</span>
+
+            <h3>Curso Completo de HTML</h3>
+
+            <p>
+                Aprenda estruturação de páginas,
+                formulários, semântica e criação
+                de sites profissionais.
+            </p>
+
+            <div class="card-buttons">
+
+                <a href="https://www.youtube.com/watch?v=Fhy-5CtVkiM" class="watch-btn">
+                    Assistir
+                </a>
+
+                <a href="https://youtube.com" class="youtube-btn">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="info">
+
+            <span class="tag">CSS3</span>
+
+            <h3>CSS Moderno e Responsivo</h3>
+
+            <p>
+                Flexbox, Grid, animações,
+                responsividade e design moderno
+                para websites profissionais.
+            </p>
+
+            <div class="card-buttons">
+
+                <a href="https://www.youtube.com/watch?v=AB35iSr1YyA" class="watch-btn">
+                    Assistir
+                </a>
+
+                <a href="https://youtube.com" class="youtube-btn">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="info">
+
+            <span class="tag">JavaScript</span>
+
+            <h3>JavaScript do Zero</h3>
+
+            <p>
+                Domine lógica de programação,
+                eventos, DOM, APIs e interatividade.
+            </p>
+
+            <div class="card-buttons">
+
+                <a href="https://youtube.com/playlist?list=PLhkO7OMKgT_rRK3qvJsZAy3jrkupOxD_h&si=jpdVkcqfqP5XEJID" class="watch-btn">
+                    Assistir
+                </a>
+
+                <a href="https://youtube.com" class="youtube-btn">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="info">
+
+            <span class="tag">Python</span>
+
+            <h3>Python para Iniciantes</h3>
+
+            <p>
+                Aprenda automação, scripts,
+                lógica e desenvolvimento com Python.
+            </p>
+
+            <div class="card-buttons">
+
+                <a href="https://youtu.be/S9uPNppGsGo?si=rUBd91AQwfTrvNqE" class="watch-btn">
+                    Assistir
+                </a>
+
+                <a href="https://youtube.com" class="youtube-btn">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="info">
+
+            <span class="tag">SQL</span>
+
+            <h3>Banco de Dados SQL</h3>
+
+            <p>
+                Consultas SQL, modelagem,
+                tabelas e gerenciamento de banco de dados.
+            </p>
+
+            <div class="card-buttons">
+
+                <a href="https://youtu.be/Ofktsne-utM?si=mCZanhuDp_NQH8dG" class="watch-btn">
+                    Assistir
+                </a>
+
+                <a href="https://youtube.com" class="youtube-btn">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARD -->
+
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="info">
+
+            <span class="tag">Redes</span>
+
+            <h3>Infraestrutura e Redes</h3>
+
+            <p>
+                Aprenda suporte técnico,
+                redes, servidores e infraestrutura.
+            </p>
+
+            <div class="card-buttons">
+
+                <a href="https://youtu.be/QkMbqL8QD9w?si=_QXg54BYerDhYYLd" class="watch-btn">
+                    Assistir
+                </a>
+
+                <a href="https://youtube.com" class="youtube-btn">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+© 2026 UltraStudyX — Plataforma Moderna de Estudos em TI
+</footer>
+
+</body>
+</html>
